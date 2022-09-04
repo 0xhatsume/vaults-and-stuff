@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    details summary { 
+        cursor: pointer;
+    }
+    details > summary {
+        list-style-type: none;
+    }
+    
+    details > summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* details summary > * { 
+        display: inline;
+    } */
+
+    /* summary::after {
+        content: ' ⮟';
+    }
+    
+    details[open] summary:after {
+        content: " ⮝";
+    } */
+}
