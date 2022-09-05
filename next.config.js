@@ -7,8 +7,5 @@ module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   assetPrefix: isProd ? '/vaults-and-stuff/' : '',
-  images: {
-    loader: 'akamai',
-    path: '',
-  },
+  
 }
