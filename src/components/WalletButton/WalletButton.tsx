@@ -3,6 +3,7 @@ import { useAccount, useDisconnect, useNetwork } from "wagmi";
 import { shortenAddress } from '../../utils';
 import { useDispatch } from 'react-redux';
 import { showModal } from '../../redux/application';
+import { NetworkButton } from './NetworkButton';
 
 export const WalletButton = () => {
     const dispatch = useDispatch();
@@ -13,48 +14,57 @@ export const WalletButton = () => {
     const { disconnect } = useDisconnect();
     
     return (
-
-        isConnecting?
-        (
-            <button type="button" className=
-                'text-white bg-blue-300 \
-                    font-medium rounded-lg text-sm px-5 py-2.5 \
-                    text-center mr-3 md:mr-0 \
-                    dark:bg-blue-200'>
-                Connecting...
-                </button>
-        )
-        :
-        (
-            isConnected?
+        <>
+            <NetworkButton/>
+            
+            {isConnecting?
             (
                 <button type="button" className=
-                    "text-white bg-green-500 hover:bg-green-800 \
-                        focus:ring-4 focus:outline-none focus:ring-green-300 \
+                    'text-white bg-blue-300 \
                         font-medium rounded-lg text-sm px-5 py-2.5 \
                         text-center mr-3 md:mr-0 \
-                        dark:bg-green-400 dark:hover:bg-green-700 dark:focus:ring-green-800"
-                        
-                        onClick={()=>{
-                            console.log('disconnecting...')
-                            disconnect()
-                        }}
-                        >
-                        {shortenAddress(address as string , 4)}
+                        dark:bg-blue-200'>
+                    Connecting...
                     </button>
-            ):
-            (<button type="button" className=
-                "text-white bg-blue-700 hover:bg-blue-800 \
-                    focus:ring-4 focus:outline-none focus:ring-blue-300 \
-                    font-medium rounded-lg text-sm px-5 py-2.5 \
-                    text-center mr-3 md:mr-0 \
-                    dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    
-                    onClick={() => dispatch(showModal("SelectWalletModal"))}
-                    >
-                Connect Wallet
-                </button>
             )
-        )
+            :
+            (
+                isConnected?
+                (
+                    <button type="button" className=
+                        "text-white bg-gradient-to-r from-cyan-500 to-blue-500 \
+                            hover:bg-gradient-to-bl hover:ring-4 hover:ring-blue-400\
+                            focus:ring-4 focus:outline-none focus:ring-cyan-300 \
+                            font-medium rounded-lg text-sm px-5 py-2.5 \
+                            text-center mr-3 md:mr-0 \
+                            shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 \
+                            dark:focus:ring-cyan-800"
+                            
+                            onClick={()=>{
+                                console.log('disconnecting...')
+                                disconnect()
+                            }}
+                            >
+                            {shortenAddress(address as string , 4)}
+                        </button>
+                ):
+                (<button type="button" className=
+                    "text-white bg-gradient-to-br from-pink-500 to-orange-400 \
+                        hover:bg-gradient-to-bl hover:ring-4 hover:ring-orange-500 \
+                        focus:ring-4 focus:outline-none focus:ring-pink-200 \
+                        font-medium rounded-lg text-sm px-5 py-2.5 \
+                        text-center mr-3 md:mr-0 \
+                        dark:focus:ring-pink-800"
+                        
+                        onClick={() => dispatch(showModal("SelectWalletModal"))}
+                        >
+                    Connect Wallet
+                    </button>
+                )
+            )
+            }
+
+        </>
     )
+        
 }
