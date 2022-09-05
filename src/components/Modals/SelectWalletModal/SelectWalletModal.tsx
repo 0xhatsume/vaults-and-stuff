@@ -3,13 +3,12 @@ import { useDispatch } from "react-redux";
 import { hideModal } from '../../../redux/application';
 import { useConnect } from 'wagmi';
 import { Overlay } from '../../Overlay';
+import { isProd, gitAddressPrefix } from '../../../config/constants';
 
 export const SelectWalletModal = () => {
   const dispatch = useDispatch();
   const handleHideModal = ()=> dispatch(hideModal("SelectWalletModal"));
   const { connect, connectors, data } = useConnect();
-
-  const isProd = process.env.NODE_ENV === 'production';
 
   return (
     <Overlay onClickOutside={handleHideModal}>
@@ -56,8 +55,7 @@ export const SelectWalletModal = () => {
                       }}
                       >
                     <img className="justify-self-start h-10 rounded" 
-                      src={isProd? 'https://0xhatsume.github.io/vaults-and-stuff/img/ui/logos/metamask.svg'
-                            :'/img/ui/logos/metamask.svg'}
+                      src={ `${isProd ? gitAddressPrefix : ''}/img/ui/logos/metamask.svg`}
                       />
                     <span className="justify-self-start ml-3 mr-auto whitespace-nowrap">MetaMask</span>
                     <span className="justify-self-end inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Popular</span>
