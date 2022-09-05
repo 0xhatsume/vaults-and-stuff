@@ -12,9 +12,8 @@ export const BasePage = (props: Props)=>{
     return (
         
             <div className='container min-h-screen 
-                        mx-auto px-4 
-                        pt-20 
-                        bg:green'>
+                        mx-auto flex flex-row justify-center 
+                        pt-20'>
 
                 {children}
             </div>

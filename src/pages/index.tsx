@@ -10,7 +10,7 @@ const Home: NextPage = () => {
           {/* accordions */}
           <VaultCard title={'Vault 2'} >
               <div className='
-                w-2/3 p-4 font-normal text-left
+                p-4 font-normal text-left
                 border border-x-gray-200 border-b-gray-200 rounded-b-xl
                 '>Ayo Mr White</div>
           </VaultCard>

@@ -16,10 +16,13 @@ export const VaultCard = (props: Props)=>{
                 onToggle={(e: React.ChangeEvent<HTMLDetailsElement>)=>{
                     setIsOpen(e.target.open)
                 }}
-                className='bg-none focus:ring focus:ring-blue-300'>
+                className='
+                    w-3/4 mt-2 
+                    bg-none focus:ring focus:ring-blue-300
+                    '>
                 <summary className="
                 flex flex-row justify-between
-                w-2/3 p-4 font-normal text-left border border-b-0 border-gray-200 rounded-t-xl 
+                p-4 font-normal text-left border border-b-0 border-gray-200 rounded-t-xl 
                 bg-blue-100 text-blue-600 
                 dark:border-gray-700 dark:bg-gray-800 dark:text-white
                 hover:bg-blue-100 dark:hover:bg-gray-800"
