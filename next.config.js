@@ -9,6 +9,6 @@ module.exports = {
   assetPrefix: isProd ? '/vaults-and-stuff/' : '',
   images: {
     loader: 'akamai',
-    path: './img',
+    path: '',
   },
 }
