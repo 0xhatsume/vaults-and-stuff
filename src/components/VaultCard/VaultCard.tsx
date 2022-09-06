@@ -45,17 +45,25 @@ export const VaultCard = ()=>{
                     text-black font-medium p-2 
                     ">{data? `$${data[1]}` :''}</span>
                     <span className="
-                    p-2
-                    ">{`at : ${daiyvaultfuncs[0].addressOrName}`}</span>
+                    p-2"
+                    ><a href={`https://etherscan.io/address/${daiyvaultfuncs[0].addressOrName}#code`}
+                    target="_blank">
+                    {`at : ${daiyvaultfuncs[0].addressOrName}`}
+                    </a></span>
                     <svg className={`w-6 h-6 my-2 ml-auto shrink-0 ${isOpen? "": "rotate-90"}`} fill="currentColor">
                         <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
                         </svg>
                 </summary>
 
                 <div className='
-                p-4 px-5 font-normal text-left
+                grid grid-cols-2 
+                p-4 font-normal text-left
                 border border-x-gray-200 border-b-gray-200 rounded-b-xl
                 '>  
+                    <div className="
+                        p-3 px-4 mr-3 
+                        border rounded border-gray-300
+                        ">
                     {(()=>{
                         const metrics: React.ReactNode[]= []
                         daiyvaultfuncs.forEach((d, i)=>{
@@ -73,6 +81,7 @@ export const VaultCard = ()=>{
                         });
                         return metrics
                     })()}
+                    </div>
                 </div>
             </details>
         
