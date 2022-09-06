@@ -47,7 +47,7 @@ export const VaultCard = ()=>{
                     <span className="
                     p-2
                     ">{`at : ${daiyvaultfuncs[0].addressOrName}`}</span>
-                    <svg className={`w-6 h-6 ml-auto shrink-0 ${isOpen? "": "rotate-90"}`} fill="currentColor">
+                    <svg className={`w-6 h-6 my-2 ml-auto shrink-0 ${isOpen? "": "rotate-90"}`} fill="currentColor">
                         <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
                         </svg>
                 </summary>
@@ -59,7 +59,6 @@ export const VaultCard = ()=>{
                     {(()=>{
                         const metrics: React.ReactNode[]= []
                         daiyvaultfuncs.forEach((d, i)=>{
-                            //console.log(data?data[i]:`${i}`);
                             if(i>=2 && i<12){
                                 metrics.push(
                                     <VaultMetric title={`${d.functionName}: `} 
@@ -72,7 +71,6 @@ export const VaultCard = ()=>{
                                 )
                             }
                         });
-                        console.log(daiyvaultfuncs)
                         return metrics
                     })()}
                 </div>
